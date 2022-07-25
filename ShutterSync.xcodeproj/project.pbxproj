@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,8 @@
 		C043DB19288A67FA00D96B4F /* ShutterSyncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C043DB18288A67FA00D96B4F /* ShutterSyncTests.swift */; };
 		C043DB23288A67FA00D96B4F /* ShutterSyncUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C043DB22288A67FA00D96B4F /* ShutterSyncUITests.swift */; };
 		C043DB25288A67FA00D96B4F /* ShutterSyncUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C043DB24288A67FA00D96B4F /* ShutterSyncUITestsLaunchTests.swift */; };
+		C043DB35288A6A6500D96B4F /* MultipeerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C043DB34288A6A6500D96B4F /* MultipeerService.swift */; };
+		C043DB37288A6B0100D96B4F /* MultipeerSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = C043DB36288A6B0100D96B4F /* MultipeerSession.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C013C746288CD57900BE9FFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C043DAFF288A67F900D96B4F /* ShutterSync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShutterSync.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C043DB02288A67F900D96B4F /* ShutterSyncApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShutterSyncApp.swift; sourceTree = "<group>"; };
 		C043DB04288A67F900D96B4F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -48,6 +51,8 @@
 		C043DB1E288A67FA00D96B4F /* ShutterSyncUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShutterSyncUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C043DB22288A67FA00D96B4F /* ShutterSyncUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShutterSyncUITests.swift; sourceTree = "<group>"; };
 		C043DB24288A67FA00D96B4F /* ShutterSyncUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShutterSyncUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C043DB34288A6A6500D96B4F /* MultipeerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipeerService.swift; sourceTree = "<group>"; };
+		C043DB36288A6B0100D96B4F /* MultipeerSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipeerSession.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,8 +103,10 @@
 		C043DB01288A67F900D96B4F /* ShutterSync */ = {
 			isa = PBXGroup;
 			children = (
+				C013C746288CD57900BE9FFD /* Info.plist */,
+				C043DB32288A6A0100D96B4F /* Views */,
+				C043DB31288A68D000D96B4F /* Services */,
 				C043DB02288A67F900D96B4F /* ShutterSyncApp.swift */,
-				C043DB04288A67F900D96B4F /* ContentView.swift */,
 				C043DB06288A67FA00D96B4F /* Assets.xcassets */,
 				C043DB0B288A67FA00D96B4F /* Persistence.swift */,
 				C043DB0D288A67FA00D96B4F /* ShutterSync.xcdatamodeld */,
@@ -133,6 +140,31 @@
 			path = ShutterSyncUITests;
 			sourceTree = "<group>";
 		};
+		C043DB31288A68D000D96B4F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C043DB33288A6A4C00D96B4F /* Multipeer */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		C043DB32288A6A0100D96B4F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C043DB04288A67F900D96B4F /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C043DB33288A6A4C00D96B4F /* Multipeer */ = {
+			isa = PBXGroup;
+			children = (
+				C043DB34288A6A6500D96B4F /* MultipeerService.swift */,
+				C043DB36288A6B0100D96B4F /* MultipeerSession.swift */,
+			);
+			path = Multipeer;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +175,7 @@
 				C043DAFB288A67F900D96B4F /* Sources */,
 				C043DAFC288A67F900D96B4F /* Frameworks */,
 				C043DAFD288A67F900D96B4F /* Resources */,
+				C013C747288DC6A000BE9FFD /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -213,7 +246,7 @@
 				};
 			};
 			buildConfigurationList = C043DAFA288A67F900D96B4F /* Build configuration list for PBXProject "ShutterSync" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -258,14 +291,36 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C013C747288DC6A000BE9FFD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C043DAFB288A67F900D96B4F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C043DB37288A6B0100D96B4F /* MultipeerSession.swift in Sources */,
 				C043DB0F288A67FA00D96B4F /* ShutterSync.xcdatamodeld in Sources */,
 				C043DB0C288A67FA00D96B4F /* Persistence.swift in Sources */,
 				C043DB05288A67F900D96B4F /* ContentView.swift in Sources */,
+				C043DB35288A6A6500D96B4F /* MultipeerService.swift in Sources */,
 				C043DB03288A67F900D96B4F /* ShutterSyncApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -428,11 +483,14 @@
 				DEVELOPMENT_TEAM = 6NK34BJQZ4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ShutterSync/Info.plist;
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Connect to multiple devices and synchronize shutters.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -457,11 +515,14 @@
 				DEVELOPMENT_TEAM = 6NK34BJQZ4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ShutterSync/Info.plist;
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Connect to multiple devices and synchronize shutters.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
