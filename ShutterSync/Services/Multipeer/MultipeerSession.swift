@@ -113,15 +113,24 @@ extension MultipeerSession: MCSessionDelegate {
     }
     
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
-        log.info("didReceive data \(data.count) from peer \(peerID)")
+        guard let string = String(data: data, encoding: .utf8), let color = NamedColor(rawValue: string) else {
+            log.info("didReceive invalid value \(data.count) bytes")
+            return
+        }
+        log.info("didReceive color \(string)")
+        DispatchQueue.main.async {
+            self.currentColor = color
+        }
     }
     
     func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {
         log.info("didReceive stream \(stream) withName \(streamName) from peer \(peerID)")
     }
     
+    
     func session(_ session: MCSession, didReceiveCertificate certificate: [Any]?, fromPeer peerID: MCPeerID, certificateHandler: @escaping (Bool) -> Void) {
         log.info("didReceive certificate fromPeer \(peerID)")
+        certificateHandler(true)
     }
     
     func session(_ session: MCSession, didStartReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, with progress: Progress) {
